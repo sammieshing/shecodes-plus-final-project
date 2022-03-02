@@ -26,10 +26,24 @@ ul {
   list-style: none;
 }
 
+button {
+  position: relative;
+  top: 0px; 
+  left: 40px;
+  background-color: #ffffff !important;
+  border-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+.form-control {
+  position: relative;
+  left: 40px; 
+ padding:10px;
+}
+
 .container {
   max-width: 500px;
-   max-height: 700px;
-   border: 1px solid #000000;
+      border: 1px solid #000000;
    background-image: linear-gradient(#b36e9b, #99507d);
    border-radius: 25px;
    display: block;

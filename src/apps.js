@@ -45,5 +45,7 @@ let month = months[now.getMonth()];
 let displayDate = document.querySelector("#display-time");
 displayDate.innerHTML = `${day}, ${date} ${month} ${year} ${hours}:${minutes}`;
 
+// Weather API 
+
 
 
