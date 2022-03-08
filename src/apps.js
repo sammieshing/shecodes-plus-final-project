@@ -59,6 +59,12 @@ function displayTemperature(response) {
   iconElement.setAttribute("alt", response.data.weather[0].icon);
 }
 
+function search(event) {
+  event.preventDefault();
+  let formElement = document.querySelector("#input");
+  console.log(formElement);
+}
+
 let apiKey = "9acc1ba10c354b22cdd73fddfa649e54"
 let units = "metric";
 let city = "Paris";
@@ -67,3 +73,5 @@ let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${
 axios.get(apiUrl).then(displayTemperature)
 
 
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", search);
