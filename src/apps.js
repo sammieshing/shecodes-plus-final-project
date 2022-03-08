@@ -47,5 +47,17 @@ displayDate.innerHTML = `${day}, ${date} ${month} ${year} ${hours}:${minutes}`;
 
 // Weather API 
 
+function displayTemperature(response) {
+  let temperatureElement = document.querySelector("#display-temp");
+  temperatureElement.innerHTML = Math.round(response.data.main.temp); 
+  let cityElement = document.querySelector("#city");
+  cityElement.innerHTML = response.data.name; 
+}
+
+let apiKey = "9acc1ba10c354b22cdd73fddfa649e54"
+let units = "metric";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Melbourne&appid=${apiKey}&units=${units}`;
+
+axios.get(apiUrl).then(displayTemperature)
 
 
