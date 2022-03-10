@@ -68,3 +68,8 @@ button {
 .day {
   font-weight: bold;
 }
+
+.weather-metrics {
+position: relative; 
+left: 50px; 
+}

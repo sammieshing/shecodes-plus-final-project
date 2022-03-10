@@ -52,9 +52,13 @@ function displayTemperature(response) {
   let cityElement = document.querySelector("#city");
   let weatherCondition = document.querySelector("#display-cond");
   let iconElement = document.querySelector("#icon");
+  let windSpeedElement = document.querySelector("#wind-speed");
+  let humidityElement = document.querySelector("#humidity");
   temperatureElement.innerHTML = Math.round(response.data.main.temp); 
   cityElement.innerHTML = response.data.name; 
   weatherCondition.innerHTML = response.data.weather[0].description;
+  windSpeedElement.innerHTML = Math.round(response.data.wind.speed); 
+  humidityElement.innerHTML = response.data.main.humidity;
   iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
   iconElement.setAttribute("alt", response.data.weather[0].icon);
 }
@@ -73,6 +77,6 @@ axios.get(apiUrl).then(displayTemperature)
   }
 
   search("Melbourne");
-  
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
