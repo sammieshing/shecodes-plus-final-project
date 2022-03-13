@@ -1,3 +1,4 @@
+
 body {
   font-family: 'Raleway', sans-serif; 
   color: white;
@@ -23,8 +24,10 @@ img {
 margin: 0px auto;
 }
 
-ul {
-  list-style: none;
+li {
+  list-style:none;
+ position: relative;
+ left: 170px; 
 }
 
 button {
@@ -43,7 +46,7 @@ button {
 }
 
 .container {
-  max-width: 500px;
+  max-width: 700px;
       border: 1px solid #000000;
    background-image: linear-gradient(#b36e9b, #99507d);
    border-radius: 25px;
@@ -51,9 +54,6 @@ button {
    margin: 10px auto; 
 }
 
-.date {
-  font-size: x-small;
-}
 
 .temp {
   font-weight: bold;
@@ -61,15 +61,30 @@ button {
 
 }
 
-.temp li {
-  padding: 7px;
-}
+
 
 .day {
   font-weight: bold;
+  text-align: center;
+  
 }
 
 .weather-metrics {
 position: relative; 
 left: 50px; 
 }
+
+.weather-forecast {
+  margin-top: 20px; 
+}
+
+.temp-max {
+  text-align: center;
+  margin-bottom: 5px; 
+  font-size: 16px;
+}
+
+  .temp-pic {
+    width: 80px; 
+  
+  }
