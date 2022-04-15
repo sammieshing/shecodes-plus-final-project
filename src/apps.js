@@ -47,6 +47,43 @@ displayDate.innerHTML = `${day}, ${date} ${month} ${year} ${hours}:${minutes}`;
 
 // Weather API 
 
+function displayForecast(response) {
+  console.log(response.data.daily);
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Saturday", "Sunday", "Monday", "Tuesday"];
+
+  days.forEach(function(day) {forecastHTML = forecastHTML + `
+   
+  <div class="col-3">
+    <div class="day">${day}</div>
+      <img class ="temp-pic" src="http://openweathermap.org/img/wn/01n@2x.png">
+    <div class="temp-max">
+        <span class="max-temp">18°C</span> 
+        <span class="min-temp">12°C</span>
+
+</div>
+</div>
+
+
+`;
+    
+  })
+
+forecastHTML = forecastHTML + `</div>`;
+forecastElement.innerHTML = forecastHTML; 
+
+} 
+
+function getForecast(coordinates) {
+  console.log(coordinates)
+  let apiKey = "9acc1ba10c354b22cdd73fddfa649e54";
+  let units = "metric";
+let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${units}`
+axios.get(apiUrl).then(displayForecast)
+console.log(apiUrl);
+}
+
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#display-temp");
   let cityElement = document.querySelector("#city");
@@ -61,6 +98,8 @@ function displayTemperature(response) {
   humidityElement.innerHTML = response.data.main.humidity;
   iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
   iconElement.setAttribute("alt", response.data.weather[0].icon);
+
+  getForecast(response.data.coord);
 }
 
 function handleSubmit(event) {
